@@ -134,8 +134,8 @@ int main(int argc, char const *argv[])
 
             cv::namedWindow("disp2");
             cv::imshow("disp2", disp1);    
-            if ((cv::waitKey() & 255) == 27)
-                break;
+                // if ((cv::waitKey() & 255) == 27)
+                //     break;
             }
     	else
     	{
@@ -159,15 +159,15 @@ int main(int argc, char const *argv[])
         }
         // 格式转换
         depth1.convertTo(depth,CV_8UC1,1./256);  //转8位   
-        cv::Mat falseColorsMap;
-	    applyColorMap(depth, falseColorsMap, cv::COLORMAP_JET);
-        cv::namedWindow("depth3");
+        // cv::Mat falseColorsMap;
+	    // applyColorMap(depth, falseColorsMap, cv::COLORMAP_JET);
+        // cv::namedWindow("depth3");
         cv::imshow("depth", depth);
-
+        imwrite(form.depthname, depth);
         // cv::namedWindow("falseColorsMap");
         // cv::imshow("falseColorsMap", falseColorsMap);    
-        if ((cv::waitKey() & 255) == 27)
-            break;
+        // if ((cv::waitKey() & 255) == 27)
+        //     break;
         //****判断是否输出彩色深度图****
 	    
     }
@@ -226,24 +226,23 @@ FILE_FORM readForm(int index,ParameterReader pd)
     //获取深度图输出文件名
     ss.clear();
     filename.clear();
-    ss<<depthDir<<index<<rgbExt;
+    ss<<depthDir<<numzero<<index<<rgbExt;
     ss>>filename;
     f.depthname = filename;
 
     //获取视差图输出文件名
     ss.clear();
     filename.clear();
-    ss<<dispDir<<index<<rgbExt;
+    ss<<dispDir<<numzero<<index<<rgbExt;
     ss>>filename;
     f.dispname = filename;
 
     //获取彩色深度图输出文件名
     ss.clear();
     filename.clear();
-    ss<<colorDir<<index<<rgbExt;
+    ss<<colorDir<<numzero<<index<<rgbExt;
     ss>>filename;
     f.colorname = filename;
 
     return f;
 }
-
