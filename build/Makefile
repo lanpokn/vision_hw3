@@ -111,84 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test01
+# Target rules for targets named generatePointCloud
 
 # Build rule for target.
-test01: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test01
-.PHONY : test01
+generatePointCloud: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 generatePointCloud
+.PHONY : generatePointCloud
 
 # fast build rule for target.
-test01/fast:
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/build
-.PHONY : test01/fast
+generatePointCloud/fast:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/build
+.PHONY : generatePointCloud/fast
 
-#=============================================================================
-# Target rules for targets named sgbm
+src/generatePointCloud.o: src/generatePointCloud.cpp.o
 
-# Build rule for target.
-sgbm: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sgbm
-.PHONY : sgbm
-
-# fast build rule for target.
-sgbm/fast:
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/build
-.PHONY : sgbm/fast
-
-src/sgbm.o: src/sgbm.cpp.o
-
-.PHONY : src/sgbm.o
+.PHONY : src/generatePointCloud.o
 
 # target to build an object file
-src/sgbm.cpp.o:
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/src/sgbm.cpp.o
-.PHONY : src/sgbm.cpp.o
+src/generatePointCloud.cpp.o:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.o
+.PHONY : src/generatePointCloud.cpp.o
 
-src/sgbm.i: src/sgbm.cpp.i
+src/generatePointCloud.i: src/generatePointCloud.cpp.i
 
-.PHONY : src/sgbm.i
-
-# target to preprocess a source file
-src/sgbm.cpp.i:
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/src/sgbm.cpp.i
-.PHONY : src/sgbm.cpp.i
-
-src/sgbm.s: src/sgbm.cpp.s
-
-.PHONY : src/sgbm.s
-
-# target to generate assembly for a file
-src/sgbm.cpp.s:
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/src/sgbm.cpp.s
-.PHONY : src/sgbm.cpp.s
-
-src/test01.o: src/test01.cpp.o
-
-.PHONY : src/test01.o
-
-# target to build an object file
-src/test01.cpp.o:
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/src/test01.cpp.o
-.PHONY : src/test01.cpp.o
-
-src/test01.i: src/test01.cpp.i
-
-.PHONY : src/test01.i
+.PHONY : src/generatePointCloud.i
 
 # target to preprocess a source file
-src/test01.cpp.i:
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/src/test01.cpp.i
-.PHONY : src/test01.cpp.i
+src/generatePointCloud.cpp.i:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.i
+.PHONY : src/generatePointCloud.cpp.i
 
-src/test01.s: src/test01.cpp.s
+src/generatePointCloud.s: src/generatePointCloud.cpp.s
 
-.PHONY : src/test01.s
+.PHONY : src/generatePointCloud.s
 
 # target to generate assembly for a file
-src/test01.cpp.s:
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/src/test01.cpp.s
-.PHONY : src/test01.cpp.s
+src/generatePointCloud.cpp.s:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.s
+.PHONY : src/generatePointCloud.cpp.s
 
 # Help Target
 help:
@@ -197,15 +157,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... generatePointCloud"
 	@echo "... edit_cache"
-	@echo "... test01"
-	@echo "... sgbm"
-	@echo "... src/sgbm.o"
-	@echo "... src/sgbm.i"
-	@echo "... src/sgbm.s"
-	@echo "... src/test01.o"
-	@echo "... src/test01.i"
-	@echo "... src/test01.s"
+	@echo "... src/generatePointCloud.o"
+	@echo "... src/generatePointCloud.i"
+	@echo "... src/generatePointCloud.s"
 .PHONY : help
 
 

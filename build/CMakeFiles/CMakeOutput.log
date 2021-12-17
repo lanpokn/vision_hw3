@@ -661,3 +661,31 @@ make[1]: Leaving directory '/home/lanpokn/Documents/2021/robot_vision/hw3/build/
 
 Source file was:
 int main() { return 0; }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_07ab9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_07ab9.dir/build.make CMakeFiles/cmTC_07ab9.dir/build
+make[1]: Entering directory '/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_07ab9.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_07ab9.dir/CheckIncludeFile.c.o   -c /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_07ab9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07ab9.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_07ab9.dir/CheckIncludeFile.c.o  -o cmTC_07ab9 
+make[1]: Leaving directory '/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_02447/fast"
+/usr/bin/make -f CMakeFiles/cmTC_02447.dir/build.make CMakeFiles/cmTC_02447.dir/build
+make[1]: Entering directory '/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_02447.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_02447.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_02447
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02447.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_02447.dir/CheckFunctionExists.c.o  -o cmTC_02447 -lpthread 
+make[1]: Leaving directory '/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/CMakeTmp'
+
+

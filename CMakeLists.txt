@@ -30,14 +30,24 @@ include_directories("/usr/include/eigen3")
 
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
+# 增加PCL库的依赖
+FIND_PACKAGE( PCL REQUIRED COMPONENTS common io )
+ADD_DEFINITIONS( ${PCL_DEFINITIONS} )
+INCLUDE_DIRECTORIES( ${PCL_INCLUDE_DIRS}  )
+LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
 
 INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
+
 # add_executable(pointcloud src/pointcloud.cpp)
 # target_link_libraries(pointcloud ${OpenCV_LIBS} ${Pangolin_LIBRARIES})
+# list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 
-add_executable(test01 src/test01.cpp)
-target_link_libraries(test01 ${OpenCV_LIBS})
+# add_executable(test01 src/test01.cpp)
+# target_link_libraries(test01 ${OpenCV_LIBS})
 
-add_executable(sgbm src/sgbm.cpp)
-target_link_libraries(sgbm ${OpenCV_LIBS})
+# add_executable(sgbm src/sgbm.cpp)
+# target_link_libraries(sgbm ${OpenCV_LIBS})
 
+ADD_EXECUTABLE( generatePointCloud src/generatePointCloud.cpp )
+TARGET_LINK_LIBRARIES( generatePointCloud ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES} )

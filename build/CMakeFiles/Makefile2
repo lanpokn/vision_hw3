@@ -60,76 +60,39 @@ CMAKE_SOURCE_DIR = /home/lanpokn/Documents/2021/robot_vision/hw3
 CMAKE_BINARY_DIR = /home/lanpokn/Documents/2021/robot_vision/hw3/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/test01.dir
+# Target rules for target CMakeFiles/generatePointCloud.dir
 
 # All Build rule for target.
-CMakeFiles/test01.dir/all:
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/depend
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=3,4 "Built target test01"
-.PHONY : CMakeFiles/test01.dir/all
+CMakeFiles/generatePointCloud.dir/all:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/depend
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=1,2 "Built target generatePointCloud"
+.PHONY : CMakeFiles/generatePointCloud.dir/all
 
 # Include target in all.
-all: CMakeFiles/test01.dir/all
+all: CMakeFiles/generatePointCloud.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test01.dir/rule: cmake_check_build_system
+CMakeFiles/generatePointCloud.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test01.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/generatePointCloud.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 0
-.PHONY : CMakeFiles/test01.dir/rule
+.PHONY : CMakeFiles/generatePointCloud.dir/rule
 
 # Convenience name for target.
-test01: CMakeFiles/test01.dir/rule
+generatePointCloud: CMakeFiles/generatePointCloud.dir/rule
 
-.PHONY : test01
-
-# clean rule for target.
-CMakeFiles/test01.dir/clean:
-	$(MAKE) -f CMakeFiles/test01.dir/build.make CMakeFiles/test01.dir/clean
-.PHONY : CMakeFiles/test01.dir/clean
+.PHONY : generatePointCloud
 
 # clean rule for target.
-clean: CMakeFiles/test01.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/sgbm.dir
-
-# All Build rule for target.
-CMakeFiles/sgbm.dir/all:
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/depend
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=1,2 "Built target sgbm"
-.PHONY : CMakeFiles/sgbm.dir/all
-
-# Include target in all.
-all: CMakeFiles/sgbm.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/sgbm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sgbm.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 0
-.PHONY : CMakeFiles/sgbm.dir/rule
-
-# Convenience name for target.
-sgbm: CMakeFiles/sgbm.dir/rule
-
-.PHONY : sgbm
+CMakeFiles/generatePointCloud.dir/clean:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/clean
+.PHONY : CMakeFiles/generatePointCloud.dir/clean
 
 # clean rule for target.
-CMakeFiles/sgbm.dir/clean:
-	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/clean
-.PHONY : CMakeFiles/sgbm.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/sgbm.dir/clean
+clean: CMakeFiles/generatePointCloud.dir/clean
 
 .PHONY : clean
 
