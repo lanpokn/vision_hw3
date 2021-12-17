@@ -35,12 +35,15 @@ FIND_PACKAGE( PCL REQUIRED COMPONENTS common io )
 ADD_DEFINITIONS( ${PCL_DEFINITIONS} )
 INCLUDE_DIRECTORIES( ${PCL_INCLUDE_DIRS}  )
 LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
+# list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 
+#add library
 INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
+
+# #add executable
 
 # add_executable(pointcloud src/pointcloud.cpp)
 # target_link_libraries(pointcloud ${OpenCV_LIBS} ${Pangolin_LIBRARIES})
-# list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 
 # add_executable(test01 src/test01.cpp)
 # target_link_libraries(test01 ${OpenCV_LIBS})
@@ -48,6 +51,19 @@ INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 # add_executable(sgbm src/sgbm.cpp)
 # target_link_libraries(sgbm ${OpenCV_LIBS})
 
-ADD_EXECUTABLE( generatePointCloud src/generatePointCloud.cpp )
-TARGET_LINK_LIBRARIES( generatePointCloud ${OpenCV_LIBS} 
+# ADD_EXECUTABLE( generate_pointcloud generatePointCloud.cpp )
+# TARGET_LINK_LIBRARIES( generate_pointcloud 
+#     ${OpenCV_LIBS} 
+#     ${PCL_LIBRARIES} )
+
+ADD_LIBRARY( slambase src/slamBase.cpp )
+TARGET_LINK_LIBRARIES( slambase
+    ${OpenCV_LIBS} 
     ${PCL_LIBRARIES} )
+
+ADD_EXECUTABLE( detectFeatures src/detectFeatures.cpp )
+TARGET_LINK_LIBRARIES( detectFeatures 
+    slambase
+    ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES} )
+

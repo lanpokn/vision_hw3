@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named generatePointCloud
+# Target rules for targets named slambase
 
 # Build rule for target.
-generatePointCloud: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 generatePointCloud
-.PHONY : generatePointCloud
+slambase: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 slambase
+.PHONY : slambase
 
 # fast build rule for target.
-generatePointCloud/fast:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/build
-.PHONY : generatePointCloud/fast
+slambase/fast:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/build
+.PHONY : slambase/fast
 
-src/generatePointCloud.o: src/generatePointCloud.cpp.o
+#=============================================================================
+# Target rules for targets named detectFeatures
 
-.PHONY : src/generatePointCloud.o
+# Build rule for target.
+detectFeatures: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 detectFeatures
+.PHONY : detectFeatures
+
+# fast build rule for target.
+detectFeatures/fast:
+	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/build
+.PHONY : detectFeatures/fast
+
+src/detectFeatures.o: src/detectFeatures.cpp.o
+
+.PHONY : src/detectFeatures.o
 
 # target to build an object file
-src/generatePointCloud.cpp.o:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.o
-.PHONY : src/generatePointCloud.cpp.o
+src/detectFeatures.cpp.o:
+	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.o
+.PHONY : src/detectFeatures.cpp.o
 
-src/generatePointCloud.i: src/generatePointCloud.cpp.i
+src/detectFeatures.i: src/detectFeatures.cpp.i
 
-.PHONY : src/generatePointCloud.i
+.PHONY : src/detectFeatures.i
 
 # target to preprocess a source file
-src/generatePointCloud.cpp.i:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.i
-.PHONY : src/generatePointCloud.cpp.i
+src/detectFeatures.cpp.i:
+	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.i
+.PHONY : src/detectFeatures.cpp.i
 
-src/generatePointCloud.s: src/generatePointCloud.cpp.s
+src/detectFeatures.s: src/detectFeatures.cpp.s
 
-.PHONY : src/generatePointCloud.s
+.PHONY : src/detectFeatures.s
 
 # target to generate assembly for a file
-src/generatePointCloud.cpp.s:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.s
-.PHONY : src/generatePointCloud.cpp.s
+src/detectFeatures.cpp.s:
+	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.s
+.PHONY : src/detectFeatures.cpp.s
+
+src/slamBase.o: src/slamBase.cpp.o
+
+.PHONY : src/slamBase.o
+
+# target to build an object file
+src/slamBase.cpp.o:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.o
+.PHONY : src/slamBase.cpp.o
+
+src/slamBase.i: src/slamBase.cpp.i
+
+.PHONY : src/slamBase.i
+
+# target to preprocess a source file
+src/slamBase.cpp.i:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.i
+.PHONY : src/slamBase.cpp.i
+
+src/slamBase.s: src/slamBase.cpp.s
+
+.PHONY : src/slamBase.s
+
+# target to generate assembly for a file
+src/slamBase.cpp.s:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.s
+.PHONY : src/slamBase.cpp.s
 
 # Help Target
 help:
@@ -157,11 +197,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... generatePointCloud"
 	@echo "... edit_cache"
-	@echo "... src/generatePointCloud.o"
-	@echo "... src/generatePointCloud.i"
-	@echo "... src/generatePointCloud.s"
+	@echo "... slambase"
+	@echo "... detectFeatures"
+	@echo "... src/detectFeatures.o"
+	@echo "... src/detectFeatures.i"
+	@echo "... src/detectFeatures.s"
+	@echo "... src/slamBase.o"
+	@echo "... src/slamBase.i"
+	@echo "... src/slamBase.s"
 .PHONY : help
 
 
