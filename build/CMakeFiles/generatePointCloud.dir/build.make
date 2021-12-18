@@ -155,6 +155,12 @@ generatePointCloud_EXTERNAL_OBJECTS =
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libxml2.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libjsoncpp.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_filters.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libboost_system.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -167,6 +173,7 @@ generatePointCloud_EXTERNAL_OBJECTS =
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpthread.so
 ../bin/generatePointCloud: /usr/lib/libOpenNI.so
 ../bin/generatePointCloud: /usr/lib/libOpenNI2.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libfreetype.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libvtkDomainsChemistry-6.3.so.6.3.0
@@ -258,6 +265,11 @@ generatePointCloud_EXTERNAL_OBJECTS =
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_common.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_octree.so
 ../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so
+../bin/generatePointCloud: /usr/lib/x86_64-linux-gnu/libpcl_filters.so
 ../bin/generatePointCloud: /usr/local/lib/libopencv_shape.so.3.4.11
 ../bin/generatePointCloud: /usr/local/lib/libopencv_highgui.so.3.4.11
 ../bin/generatePointCloud: /usr/local/lib/libopencv_videoio.so.3.4.11
