@@ -77,8 +77,12 @@ int main( int argc, char** argv )
         filename.clear();
         ss<<depthDir<<numzero<<index<<rgbExt;
         ss>>filename;
-        depth = cv::imread(filename,-1);
 
+        depth = cv::imread(filename,-1);
+        // cv::namedWindow("depth");
+        // cv::imshow("depth", depth);
+        // if ((cv::waitKey() & 255) == 27)
+        //     break;
         // 点云变量
         // 使用智能指针，创建一个空点云。这种指针用完会自动释放。
         PointCloud::Ptr cloud ( new PointCloud );
@@ -87,7 +91,7 @@ int main( int argc, char** argv )
             for (int n=0; n < depth.cols; n++)
             {
                 // 获取深度图中(m,n)处的值
-                ushort d = depth.ptr<ushort>(m)[n];
+                uchar d = depth.ptr<uchar>(m)[n];
                 // d 可能没有值，若如此，跳过此点
                 if (d == 0)
                     continue;
