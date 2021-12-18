@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/include/pcl-1.8",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "/usr/include/vtk-6.3"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
