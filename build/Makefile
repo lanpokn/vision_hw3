@@ -124,44 +124,17 @@ slambase/fast:
 .PHONY : slambase/fast
 
 #=============================================================================
-# Target rules for targets named detectFeatures
+# Target rules for targets named visualOdometry
 
 # Build rule for target.
-detectFeatures: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 detectFeatures
-.PHONY : detectFeatures
+visualOdometry: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
+.PHONY : visualOdometry
 
 # fast build rule for target.
-detectFeatures/fast:
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/build
-.PHONY : detectFeatures/fast
-
-src/detectFeatures.o: src/detectFeatures.cpp.o
-
-.PHONY : src/detectFeatures.o
-
-# target to build an object file
-src/detectFeatures.cpp.o:
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.o
-.PHONY : src/detectFeatures.cpp.o
-
-src/detectFeatures.i: src/detectFeatures.cpp.i
-
-.PHONY : src/detectFeatures.i
-
-# target to preprocess a source file
-src/detectFeatures.cpp.i:
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.i
-.PHONY : src/detectFeatures.cpp.i
-
-src/detectFeatures.s: src/detectFeatures.cpp.s
-
-.PHONY : src/detectFeatures.s
-
-# target to generate assembly for a file
-src/detectFeatures.cpp.s:
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.s
-.PHONY : src/detectFeatures.cpp.s
+visualOdometry/fast:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+.PHONY : visualOdometry/fast
 
 src/slamBase.o: src/slamBase.cpp.o
 
@@ -190,6 +163,33 @@ src/slamBase.cpp.s:
 	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.s
 .PHONY : src/slamBase.cpp.s
 
+src/visualOdometry.o: src/visualOdometry.cpp.o
+
+.PHONY : src/visualOdometry.o
+
+# target to build an object file
+src/visualOdometry.cpp.o:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.o
+.PHONY : src/visualOdometry.cpp.o
+
+src/visualOdometry.i: src/visualOdometry.cpp.i
+
+.PHONY : src/visualOdometry.i
+
+# target to preprocess a source file
+src/visualOdometry.cpp.i:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.i
+.PHONY : src/visualOdometry.cpp.i
+
+src/visualOdometry.s: src/visualOdometry.cpp.s
+
+.PHONY : src/visualOdometry.s
+
+# target to generate assembly for a file
+src/visualOdometry.cpp.s:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.s
+.PHONY : src/visualOdometry.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -199,13 +199,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... slambase"
-	@echo "... detectFeatures"
-	@echo "... src/detectFeatures.o"
-	@echo "... src/detectFeatures.i"
-	@echo "... src/detectFeatures.s"
+	@echo "... visualOdometry"
 	@echo "... src/slamBase.o"
 	@echo "... src/slamBase.i"
 	@echo "... src/slamBase.s"
+	@echo "... src/visualOdometry.o"
+	@echo "... src/visualOdometry.i"
+	@echo "... src/visualOdometry.s"
 .PHONY : help
 
 

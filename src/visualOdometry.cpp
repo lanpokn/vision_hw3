@@ -49,6 +49,8 @@ int main( int argc, char** argv )
         computeKeyPointsAndDesp( currFrame, detector, descriptor );
         // 比较currFrame 和 lastFrame
         RESULT_OF_PNP result = estimateMotion( lastFrame, currFrame, camera );
+        cout<<"result.inliers:"<<result.inliers<<endl;
+        cout<<"r"<<result.rvec<<endl<<"t"<<result.tvec<<endl;
         if ( result.inliers < min_inliers ) //inliers不够，放弃该帧
             continue;
         // 计算运动范围是否太大
@@ -68,7 +70,7 @@ int main( int argc, char** argv )
         lastFrame = currFrame;
     }
 
-    pcl::io::savePCDFile( "data/result.pcd", *cloud );
+    pcl::io::savePCDFile( "../kitti03/data/result.pcd", *cloud );
     return 0;
 }
 
@@ -80,16 +82,36 @@ FRAME readFrame( int index, ParameterReader& pd )
 
     string rgbExt   =   pd.getData("rgb_extension");
     string depthExt =   pd.getData("depth_extension");
-
+    string numzero;
+    if ( index >= 0 && index <= 9 )
+    {
+        numzero = "00000";
+    }
+    else if ( index >= 10 && index <= 99 )
+    {
+        numzero = "0000";
+    }
+    else if ( index >= 100 && index <= 999 )
+    {
+        numzero = "000";
+    }
+    else if ( index >= 1000 && index <= 9999 )
+    {
+        numzero = "00";
+    }
+    else if ( index >= 10000 && index <= 99999 )
+    {
+        numzero = "0";
+    }
     stringstream ss;
-    ss<<rgbDir<<index<<rgbExt;
+    ss<<rgbDir<<numzero<<index<<rgbExt;
     string filename;
     ss>>filename;
     f.rgb = cv::imread( filename );
 
     ss.clear();
     filename.clear();
-    ss<<depthDir<<index<<depthExt;
+    ss<<depthDir<<numzero<<index<<depthExt;
     ss>>filename;
 
     f.depth = cv::imread( filename, -1 );

@@ -90,7 +90,8 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
 {
     static ParameterReader pd;
     vector< cv::DMatch > matches;
-    cv::FlannBasedMatcher matcher;
+    // cv::FlannBasedMatcher matcher;
+    cv::BFMatcher matcher;
     matcher.match( frame1.desp, frame2.desp, matches );
 
     cout<<"find total "<<matches.size()<<" matches."<<endl;
@@ -143,7 +144,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.95, inliers );
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.6, inliers );
 
     RESULT_OF_PNP result;
     result.rvec = rvec;

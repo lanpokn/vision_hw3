@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/lanpokn/Documents/2021/robot_vision/hw3/build
 CMakeFiles/slambase.dir/all:
 	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/depend
 	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=3,4 "Built target slambase"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=1,2 "Built target slambase"
 .PHONY : CMakeFiles/slambase.dir/all
 
 # Include target in all.
@@ -97,39 +97,39 @@ clean: CMakeFiles/slambase.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/detectFeatures.dir
+# Target rules for target CMakeFiles/visualOdometry.dir
 
 # All Build rule for target.
-CMakeFiles/detectFeatures.dir/all: CMakeFiles/slambase.dir/all
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/depend
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=1,2 "Built target detectFeatures"
-.PHONY : CMakeFiles/detectFeatures.dir/all
+CMakeFiles/visualOdometry.dir/all: CMakeFiles/slambase.dir/all
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/depend
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=3,4 "Built target visualOdometry"
+.PHONY : CMakeFiles/visualOdometry.dir/all
 
 # Include target in all.
-all: CMakeFiles/detectFeatures.dir/all
+all: CMakeFiles/visualOdometry.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/detectFeatures.dir/rule: cmake_check_build_system
+CMakeFiles/visualOdometry.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/detectFeatures.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/visualOdometry.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 0
-.PHONY : CMakeFiles/detectFeatures.dir/rule
+.PHONY : CMakeFiles/visualOdometry.dir/rule
 
 # Convenience name for target.
-detectFeatures: CMakeFiles/detectFeatures.dir/rule
+visualOdometry: CMakeFiles/visualOdometry.dir/rule
 
-.PHONY : detectFeatures
-
-# clean rule for target.
-CMakeFiles/detectFeatures.dir/clean:
-	$(MAKE) -f CMakeFiles/detectFeatures.dir/build.make CMakeFiles/detectFeatures.dir/clean
-.PHONY : CMakeFiles/detectFeatures.dir/clean
+.PHONY : visualOdometry
 
 # clean rule for target.
-clean: CMakeFiles/detectFeatures.dir/clean
+CMakeFiles/visualOdometry.dir/clean:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/clean
+.PHONY : CMakeFiles/visualOdometry.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/visualOdometry.dir/clean
 
 .PHONY : clean
 

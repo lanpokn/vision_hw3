@@ -31,7 +31,7 @@ include_directories("/usr/include/eigen3")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 # 增加PCL库的依赖
-FIND_PACKAGE( PCL REQUIRED COMPONENTS common io )
+FIND_PACKAGE( PCL REQUIRED COMPONENTS common io visualization filters)
 ADD_DEFINITIONS( ${PCL_DEFINITIONS} )
 INCLUDE_DIRECTORIES( ${PCL_INCLUDE_DIRS}  )
 LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
@@ -67,3 +67,10 @@ TARGET_LINK_LIBRARIES( slambase
 #     ${OpenCV_LIBS} 
 #     ${PCL_LIBRARIES} )
 
+ADD_EXECUTABLE(visualOdometry src/visualOdometry.cpp )
+TARGET_LINK_LIBRARIES( visualOdometry 
+    slambase
+    ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES}
+    ${PCL_COMMON_LIBRARIES} 
+    ${PCL_IO_LIBRARIES} )
