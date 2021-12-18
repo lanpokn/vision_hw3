@@ -61,9 +61,9 @@ TARGET_LINK_LIBRARIES( slambase
     ${OpenCV_LIBS} 
     ${PCL_LIBRARIES} )
 
-ADD_EXECUTABLE( detectFeatures src/detectFeatures.cpp )
-TARGET_LINK_LIBRARIES( detectFeatures 
-    slambase
-    ${OpenCV_LIBS} 
-    ${PCL_LIBRARIES} )
+# ADD_EXECUTABLE( detectFeatures src/detectFeatures.cpp )
+# TARGET_LINK_LIBRARIES( detectFeatures 
+#     slambase
+#     ${OpenCV_LIBS} 
+#     ${PCL_LIBRARIES} )
 

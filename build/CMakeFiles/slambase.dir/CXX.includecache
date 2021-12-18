@@ -23,6 +23,10 @@ pcl/point_types.h
 /home/lanpokn/Documents/2021/robot_vision/hw3/src/slamBase.cpp
 slamBase.h
 /home/lanpokn/Documents/2021/robot_vision/hw3/src/slamBase.h
+opencv2/features2d/features2d.hpp
+-
+opencv2/calib3d/calib3d.hpp
+-
 
 /home/lanpokn/Downloads/opencv-3.4.11/opencv_contrib-3.4.11/modules/xfeatures2d/include/opencv2/xfeatures2d/cuda.hpp
 opencv2/core/cuda.hpp
@@ -1464,6 +1468,10 @@ opencv2/core/affine.hpp
 opencv2/calib3d/calib3d_c.h
 /usr/local/include/opencv2/opencv2/calib3d/calib3d_c.h
 
+/usr/local/include/opencv2/calib3d/calib3d.hpp
+opencv2/calib3d.hpp
+/usr/local/include/opencv2/calib3d/opencv2/calib3d.hpp
+
 /usr/local/include/opencv2/calib3d/calib3d_c.h
 opencv2/core/core_c.h
 /usr/local/include/opencv2/calib3d/opencv2/core/core_c.h
@@ -1883,6 +1891,10 @@ opencv2/core.hpp
 /usr/local/include/opencv2/opencv2/core.hpp
 opencv2/flann/miniflann.hpp
 /usr/local/include/opencv2/opencv2/flann/miniflann.hpp
+
+/usr/local/include/opencv2/features2d/features2d.hpp
+opencv2/features2d.hpp
+/usr/local/include/opencv2/features2d/opencv2/features2d.hpp
 
 /usr/local/include/opencv2/flann.hpp
 opencv2/core.hpp

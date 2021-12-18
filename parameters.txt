@@ -1,4 +1,4 @@
-# TODO
+{% comment %} # TODO
 #camera
 camera.fx=721.5377000000
 camera.fy=721.5377000000
@@ -20,4 +20,20 @@ start_index=0
 end_index=801
 is_color=no
 algorithm=SGBM
-#algorithm=BM
+#algorithm=BM {% endcomment %}
+
+{% comment %} # 这是一个参数文件
+# 去你妹的yaml! 我再也不用yaml了！简简单单多好！
+
+# part 4 里定义的参数 {% endcomment %}
+
+detector=ORB
+descriptor=ORB
+good_match_threshold=10
+
+# camera
+camera.cx=325.5;
+camera.cy=253.5;
+camera.fx=518.0;
+camera.fy=519.0;
+camera.scale=1000.0;
