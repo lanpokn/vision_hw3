@@ -7,14 +7,20 @@ set(CMAKE_BUILD_TYPE "Debug")
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-if(COMPILER_SUPPORTS_CXX11)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-elseif(COMPILER_SUPPORTS_CXX0X)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-else()
-    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-endif()
+# if(COMPILER_SUPPORTS_CXX11)
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+# elseif(COMPILER_SUPPORTS_CXX0X)
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+# else()
+#     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+# endif()
 
+set(CMAKE_CXX_FLAGS "-std=c++14 -O2 ${SSE_FLAGS} -msse4")
+set(CMAKE_CXX_STANDARD 14)
+
+# SET(CMAKE_CXX_COMPILER "g++")
+# SET( CMAKE_CXX_FLAGS "-std=c++11 -O3")
+# set(CMAKE_CXX_STANDARD 11)
 #设定可执行二进制文件的目录
 SET( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) 
 	
@@ -37,6 +43,15 @@ INCLUDE_DIRECTORIES( ${PCL_INCLUDE_DIRS}  )
 LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
 # list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 
+# 添加g2o的依赖
+# 因为g2o不是常用库，要添加它的findg2o.cmake文件
+LIST( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
+SET( G2O_ROOT /usr/local/include/g2o )
+FIND_PACKAGE( G2O )
+# CSparse
+FIND_PACKAGE( CSparse )
+INCLUDE_DIRECTORIES( ${G2O_INCLUDE_DIR} ${CSPARSE_INCLUDE_DIR} )
+
 #add library
 INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 
@@ -56,10 +71,10 @@ INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 #     ${OpenCV_LIBS} 
 #     ${PCL_LIBRARIES} )
 
-ADD_LIBRARY( slambase src/slamBase.cpp )
-TARGET_LINK_LIBRARIES( slambase
-    ${OpenCV_LIBS} 
-    ${PCL_LIBRARIES} )
+# ADD_LIBRARY( slambase src/slamBase.cpp )
+# TARGET_LINK_LIBRARIES( slambase
+#     ${OpenCV_LIBS} 
+#     ${PCL_LIBRARIES} )
 
 # ADD_EXECUTABLE( detectFeatures src/detectFeatures.cpp )
 # TARGET_LINK_LIBRARIES( detectFeatures 
@@ -67,10 +82,19 @@ TARGET_LINK_LIBRARIES( slambase
 #     ${OpenCV_LIBS} 
 #     ${PCL_LIBRARIES} )
 
-ADD_EXECUTABLE(visualOdometry src/visualOdometry.cpp )
-TARGET_LINK_LIBRARIES( visualOdometry 
+# ADD_EXECUTABLE(visualOdometry src/visualOdometry.cpp )
+# TARGET_LINK_LIBRARIES( visualOdometry 
+#     slambase
+#     ${OpenCV_LIBS} 
+#     ${PCL_LIBRARIES}
+#     ${PCL_COMMON_LIBRARIES} 
+#     ${PCL_IO_LIBRARIES} )
+
+ADD_EXECUTABLE( slamEnd src/slamEnd.cpp )
+TARGET_LINK_LIBRARIES( slamEnd
     slambase
-    ${OpenCV_LIBS} 
+    ${OpenCV_LIBS}
     ${PCL_LIBRARIES}
     ${PCL_COMMON_LIBRARIES} 
-    ${PCL_IO_LIBRARIES} )
+    ${PCL_IO_LIBRARIES}
+    g2o_core g2o_types_slam3d g2o_solver_csparse g2o_stuff g2o_csparse_extension ${CSPARSE_LIBRARY})

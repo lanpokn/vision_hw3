@@ -11,6 +11,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
+  "../cmake_modules/FindCSparse.cmake"
+  "../cmake_modules/FindG2O.cmake"
   "/usr/lib/cmake/vtk-6.3/Modules/vtkChartsCore.cmake"
   "/usr/lib/cmake/vtk-6.3/Modules/vtkCommonColor.cmake"
   "/usr/lib/cmake/vtk-6.3/Modules/vtkCommonComputationalGeometry.cmake"
@@ -254,6 +256,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/slambase.dir/DependInfo.cmake"
-  "CMakeFiles/visualOdometry.dir/DependInfo.cmake"
+  "CMakeFiles/slamEnd.dir/DependInfo.cmake"
   )

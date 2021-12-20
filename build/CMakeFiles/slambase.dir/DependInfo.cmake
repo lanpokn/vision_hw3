@@ -54,6 +54,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/pcl-1.8"
   "/usr/include/ni"
   "/usr/include/openni2"
+  "/usr/include/suitesparse"
   "../include"
   "/usr/include/x86_64-linux-gnu/qt5"
   "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"

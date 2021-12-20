@@ -42,7 +42,7 @@ camera.scale=10000.0
 # 数据相关
 # 起始与终止索引
 start_index=0
-end_index=300
+end_index=800
 # 数据所在目录
 rgb_dir=../kitti03/image_0/
 rgb_extension=.png
