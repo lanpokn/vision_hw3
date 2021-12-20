@@ -90,7 +90,6 @@ detectFeatures_EXTERNAL_OBJECTS =
 
 ../bin/detectFeatures: CMakeFiles/detectFeatures.dir/src/detectFeatures.cpp.o
 ../bin/detectFeatures: CMakeFiles/detectFeatures.dir/build.make
-../bin/detectFeatures: ../lib/libslambase.a
 ../bin/detectFeatures: /usr/local/lib/libopencv_stitching.so.3.4.11
 ../bin/detectFeatures: /usr/local/lib/libopencv_superres.so.3.4.11
 ../bin/detectFeatures: /usr/local/lib/libopencv_videostab.so.3.4.11
@@ -156,6 +155,12 @@ detectFeatures_EXTERNAL_OBJECTS =
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libxml2.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libjsoncpp.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_filters.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libboost_system.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -168,6 +173,7 @@ detectFeatures_EXTERNAL_OBJECTS =
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpthread.so
 ../bin/detectFeatures: /usr/lib/libOpenNI.so
 ../bin/detectFeatures: /usr/lib/libOpenNI2.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libfreetype.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libz.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libvtkDomainsChemistry-6.3.so.6.3.0
@@ -376,6 +382,12 @@ detectFeatures_EXTERNAL_OBJECTS =
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libgl2ps.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libjsoncpp.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_filters.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libboost_system.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -397,6 +409,12 @@ detectFeatures_EXTERNAL_OBJECTS =
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libgl2ps.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libjsoncpp.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_io.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_search.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so
+../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpcl_filters.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libfreetype.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libpython2.7.so
 ../bin/detectFeatures: /usr/lib/x86_64-linux-gnu/libproj.so

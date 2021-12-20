@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named generatePointCloud
+# Target rules for targets named slambase
 
 # Build rule for target.
-generatePointCloud: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 generatePointCloud
-.PHONY : generatePointCloud
+slambase: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 slambase
+.PHONY : slambase
 
 # fast build rule for target.
-generatePointCloud/fast:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/build
-.PHONY : generatePointCloud/fast
+slambase/fast:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/build
+.PHONY : slambase/fast
 
-src/generatePointCloud.o: src/generatePointCloud.cpp.o
+#=============================================================================
+# Target rules for targets named visualOdometry
 
-.PHONY : src/generatePointCloud.o
+# Build rule for target.
+visualOdometry: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
+.PHONY : visualOdometry
+
+# fast build rule for target.
+visualOdometry/fast:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+.PHONY : visualOdometry/fast
+
+src/slamBase.o: src/slamBase.cpp.o
+
+.PHONY : src/slamBase.o
 
 # target to build an object file
-src/generatePointCloud.cpp.o:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.o
-.PHONY : src/generatePointCloud.cpp.o
+src/slamBase.cpp.o:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.o
+.PHONY : src/slamBase.cpp.o
 
-src/generatePointCloud.i: src/generatePointCloud.cpp.i
+src/slamBase.i: src/slamBase.cpp.i
 
-.PHONY : src/generatePointCloud.i
+.PHONY : src/slamBase.i
 
 # target to preprocess a source file
-src/generatePointCloud.cpp.i:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.i
-.PHONY : src/generatePointCloud.cpp.i
+src/slamBase.cpp.i:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.i
+.PHONY : src/slamBase.cpp.i
 
-src/generatePointCloud.s: src/generatePointCloud.cpp.s
+src/slamBase.s: src/slamBase.cpp.s
 
-.PHONY : src/generatePointCloud.s
+.PHONY : src/slamBase.s
 
 # target to generate assembly for a file
-src/generatePointCloud.cpp.s:
-	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.s
-.PHONY : src/generatePointCloud.cpp.s
+src/slamBase.cpp.s:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.s
+.PHONY : src/slamBase.cpp.s
+
+src/visualOdometry.o: src/visualOdometry.cpp.o
+
+.PHONY : src/visualOdometry.o
+
+# target to build an object file
+src/visualOdometry.cpp.o:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.o
+.PHONY : src/visualOdometry.cpp.o
+
+src/visualOdometry.i: src/visualOdometry.cpp.i
+
+.PHONY : src/visualOdometry.i
+
+# target to preprocess a source file
+src/visualOdometry.cpp.i:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.i
+.PHONY : src/visualOdometry.cpp.i
+
+src/visualOdometry.s: src/visualOdometry.cpp.s
+
+.PHONY : src/visualOdometry.s
+
+# target to generate assembly for a file
+src/visualOdometry.cpp.s:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.s
+.PHONY : src/visualOdometry.cpp.s
 
 # Help Target
 help:
@@ -157,11 +197,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... generatePointCloud"
 	@echo "... edit_cache"
-	@echo "... src/generatePointCloud.o"
-	@echo "... src/generatePointCloud.i"
-	@echo "... src/generatePointCloud.s"
+	@echo "... slambase"
+	@echo "... visualOdometry"
+	@echo "... src/slamBase.o"
+	@echo "... src/slamBase.i"
+	@echo "... src/slamBase.s"
+	@echo "... src/visualOdometry.o"
+	@echo "... src/visualOdometry.i"
+	@echo "... src/visualOdometry.s"
 .PHONY : help
 
 

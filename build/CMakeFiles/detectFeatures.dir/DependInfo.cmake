@@ -16,6 +16,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "DISABLE_LIBUSB_1_0"
   "DISABLE_PCAP"
   "DISABLE_PNG"
+  "DISABLE_RSSDK"
+  "FLANN_STATIC"
   "QT_CORE_LIB"
   "QT_GUI_LIB"
   "QT_WIDGETS_LIB"
@@ -62,7 +64,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles/slambase.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
