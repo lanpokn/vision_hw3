@@ -32,6 +32,7 @@ int main( int argc, char** argv )
     string descriptor = pd.getData( "descriptor" );
     CAMERA_INTRINSIC_PARAMETERS camera = getDefaultCamera();
     computeKeyPointsAndDesp( lastFrame, detector, descriptor );
+    ///
     PointCloud::Ptr cloud = image2PointCloud( lastFrame.rgb, lastFrame.depth, camera );
 
     pcl::visualization::CloudViewer viewer("viewer");

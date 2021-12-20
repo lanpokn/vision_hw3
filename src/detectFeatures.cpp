@@ -118,7 +118,7 @@ int main( int argc, char** argv )
         // query 是第一个, train 是第二个
         cv::Point2f p = kp1[goodMatches[i].queryIdx].pt;
         // 获取d是要小心！x是向右的，y是向下的，所以y才是行，x是列！
-        ushort d = depth1.ptr<ushort>( int(p.y) )[ int(p.x) ];
+        uchar d = depth1.ptr<uchar>( int(p.y) )[ int(p.x) ];
         if (d == 0)
             continue;
         pts_img.push_back( cv::Point2f( kp2[goodMatches[i].trainIdx].pt ) );
@@ -140,7 +140,7 @@ int main( int argc, char** argv )
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
     cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, (0.9899999999999999911), inliers );
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, (0.9899999999999999911), inliers );
+    // cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, (0.9899999999999999911), inliers );
 
     cout<<"inliers: "<<inliers.rows<<endl;
     cout<<"R="<<rvec<<endl;
