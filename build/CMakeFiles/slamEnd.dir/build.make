@@ -90,7 +90,6 @@ slamEnd_EXTERNAL_OBJECTS =
 
 ../bin/slamEnd: CMakeFiles/slamEnd.dir/src/slamEnd.cpp.o
 ../bin/slamEnd: CMakeFiles/slamEnd.dir/build.make
-../bin/slamEnd: ../lib/libslambase.a
 ../bin/slamEnd: /usr/local/lib/libopencv_stitching.so.3.4.11
 ../bin/slamEnd: /usr/local/lib/libopencv_superres.so.3.4.11
 ../bin/slamEnd: /usr/local/lib/libopencv_videostab.so.3.4.11

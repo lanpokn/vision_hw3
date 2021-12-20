@@ -1,31 +1,20 @@
-/*************************************************************************
-    > File Name: rgbd-slam-tutorial-gx/part V/src/visualOdometry.cpp
-    > Author: xiang gao
-    > Mail: gaoxiang12@mails.tsinghua.edu.cn
-    > Created Time: 2015年08月01日 星期六 15时35分42秒
- ************************************************************************/
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
 using namespace std;
 
-//g2o的头文件
-#include <g2o/types/slam3d/types_slam3d.h> //顶点类型
+#include <g2o/types/slam3d/types_slam3d.h>
 #include <g2o/core/sparse_optimizer.h>
 #include <g2o/core/block_solver.h>
 #include <g2o/core/factory.h>
 #include <g2o/core/optimization_algorithm_factory.h>
 #include <g2o/core/optimization_algorithm_gauss_newton.h>
 #include <g2o/solvers/csparse/linear_solver_csparse.h>
-// #include <g2o/solvers/eigen/linear_solver_csparse.h>
 #include <g2o/core/robust_kernel.h>
 #include <g2o/core/robust_kernel_factory.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
 
 #include "slamBase.h"
-
-// 给定index，读取一帧数据
 FRAME readFrame( int index, ParameterReader& pd );
 // 度量运动的大小
 double normofTransform( cv::Mat rvec, cv::Mat tvec );
@@ -45,7 +34,6 @@ int main( int argc, char** argv )
     string descriptor = pd.getData( "descriptor" );
     CAMERA_INTRINSIC_PARAMETERS camera = getDefaultCamera();
     computeKeyPointsAndDesp( lastFrame, detector, descriptor );
-    ///
     PointCloud::Ptr cloud = image2PointCloud( lastFrame.rgb, lastFrame.depth, camera );
 
     pcl::visualization::CloudViewer viewer("viewer");
@@ -55,48 +43,13 @@ int main( int argc, char** argv )
 
     int min_inliers = atoi( pd.getData("min_inliers").c_str() );
     double max_norm = atof( pd.getData("max_norm").c_str() );
-
-    /*******************************
-    // 新增:有关g2o的初始化
-    *******************************/
-    // // 选择优化方法
-    // typedef g2o::BlockSolver_6_3 SlamBlockSolver;
-    // typedef g2o::LinearSolverCSparse< SlamBlockSolver::PoseMatrixType > SlamLinearSolver;
-
-    // 初始化求解器
-    // SlamLinearSolver* linearSolver = new SlamLinearSolver();
-    // linearSolver->setBlockOrdering( false );
-    // SlamBlockSolver* blockSolver = new SlamBlockSolver( linearSolver );
-    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( blockSolver );
-
-    // g2o::SparseOptimizer globalOptimizer;  // 最后用的就是这个东东
-    // globalOptimizer.setAlgorithm( solver );
-
-    //Block::LinearSolverType* linearSolver = new g2o::LinearSolverCSparse<Block::PoseMatrixType>(); // 线性方程求解器
-    // std::unique_ptr<Block::LinearSolverType> linearSolver ( new g2o::LinearSolverCSparse<Block::PoseMatrixType>());
-    //Block* solver_ptr = new Block ( linearSolver );
-    //std::unique_ptr<Block> solver_ptr ( new Block ( linearSolver));
-    // std::unique_ptr<Block> solver_ptr ( new Block ( std::move(linearSolver)));     // 矩阵块求解器
-    //g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( solver_ptr);
-    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr));
-    // g2o::SparseOptimizer globalOptimizer;
-    // globalOptimizer.setAlgorithm ( solver );
-
-    // typedef g2o::BlockSolver< g2o::BlockSolverTraits<3,1> > Block;
-    // Block::LinearSolverType* linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>();
-    // Block* solver_ptr = new Block( std::unique_ptr<Block::LinearSolverType>(linearSolver) );
-    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg(std::unique_ptr<Block>(solver_ptr) );
-    // g2o::SparseOptimizer globalOptimizer;   
-    // globalOptimizer.setAlgorithm( solver );
-
-    // 线性方程求解器
+    //g2o
     auto linear_solver = g2o::make_unique<g2o::LinearSolverCSparse<g2o::BlockSolver_6_3::PoseMatrixType>>();
     // 矩阵块求解器
     auto block_solver = g2o::make_unique<g2o::BlockSolver_6_3>(std::move(linear_solver));
     g2o::OptimizationAlgorithmLevenberg *solver = new g2o::OptimizationAlgorithmLevenberg(std::move(block_solver));
     g2o::SparseOptimizer globalOptimizer;
     globalOptimizer.setAlgorithm(solver);   
-
     //不要输出调试信息
     globalOptimizer.setVerbose( false );
 
@@ -111,11 +64,6 @@ int main( int argc, char** argv )
 
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {   
-        cout<<"why?"<<endl;
-        if (currIndex > 100){
-            cout<<"why186?"<<endl;
-            int a =12;
-        }
         cout<<"Reading files "<<currIndex<<endl;
         FRAME currFrame = readFrame( currIndex,pd ); // 读取currFrame
         computeKeyPointsAndDesp( currFrame, detector, descriptor );
