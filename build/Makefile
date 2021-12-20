@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named slambase
+
+# Build rule for target.
+slambase: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 slambase
+.PHONY : slambase
+
+# fast build rule for target.
+slambase/fast:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/build
+.PHONY : slambase/fast
+
+#=============================================================================
 # Target rules for targets named slamEnd
 
 # Build rule for target.
@@ -122,6 +135,33 @@ slamEnd: cmake_check_build_system
 slamEnd/fast:
 	$(MAKE) -f CMakeFiles/slamEnd.dir/build.make CMakeFiles/slamEnd.dir/build
 .PHONY : slamEnd/fast
+
+src/slamBase.o: src/slamBase.cpp.o
+
+.PHONY : src/slamBase.o
+
+# target to build an object file
+src/slamBase.cpp.o:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.o
+.PHONY : src/slamBase.cpp.o
+
+src/slamBase.i: src/slamBase.cpp.i
+
+.PHONY : src/slamBase.i
+
+# target to preprocess a source file
+src/slamBase.cpp.i:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.i
+.PHONY : src/slamBase.cpp.i
+
+src/slamBase.s: src/slamBase.cpp.s
+
+.PHONY : src/slamBase.s
+
+# target to generate assembly for a file
+src/slamBase.cpp.s:
+	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.s
+.PHONY : src/slamBase.cpp.s
 
 src/slamEnd.o: src/slamEnd.cpp.o
 
@@ -157,8 +197,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... slamEnd"
 	@echo "... edit_cache"
+	@echo "... slambase"
+	@echo "... slamEnd"
+	@echo "... src/slamBase.o"
+	@echo "... src/slamBase.i"
+	@echo "... src/slamBase.s"
 	@echo "... src/slamEnd.o"
 	@echo "... src/slamEnd.i"
 	@echo "... src/slamEnd.s"

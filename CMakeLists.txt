@@ -15,6 +15,7 @@ CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 #     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 # endif()
 
+# set(CMAKE_CXX_FLAGS "-std=c++14 -O2 ${SSE_FLAGS} -msse4")
 set(CMAKE_CXX_FLAGS "-std=c++14 -O2 ${SSE_FLAGS} -msse4")
 set(CMAKE_CXX_STANDARD 14)
 
@@ -71,10 +72,10 @@ INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 #     ${OpenCV_LIBS} 
 #     ${PCL_LIBRARIES} )
 
-# ADD_LIBRARY( slambase src/slamBase.cpp )
-# TARGET_LINK_LIBRARIES( slambase
-#     ${OpenCV_LIBS} 
-#     ${PCL_LIBRARIES} )
+ADD_LIBRARY( slambase src/slamBase.cpp )
+TARGET_LINK_LIBRARIES( slambase
+    ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES} )
 
 # ADD_EXECUTABLE( detectFeatures src/detectFeatures.cpp )
 # TARGET_LINK_LIBRARIES( detectFeatures 

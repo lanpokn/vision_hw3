@@ -110,7 +110,12 @@ int main( int argc, char** argv )
     int lastIndex = currIndex; // 上一帧的id
 
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
-    {
+    {   
+        cout<<"why?"<<endl;
+        if (currIndex > 100){
+            cout<<"why186?"<<endl;
+            int a =12;
+        }
         cout<<"Reading files "<<currIndex<<endl;
         FRAME currFrame = readFrame( currIndex,pd ); // 读取currFrame
         computeKeyPointsAndDesp( currFrame, detector, descriptor );
