@@ -73,10 +73,10 @@ INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 #     ${OpenCV_LIBS} 
 #     ${PCL_LIBRARIES} )
 
-# ADD_LIBRARY( slambase src/slamBase.cpp )
-# TARGET_LINK_LIBRARIES( slambase
-#     ${OpenCV_LIBS} 
-#     ${PCL_LIBRARIES} )
+ADD_LIBRARY( slambase src/slamBase.cpp )
+TARGET_LINK_LIBRARIES( slambase
+    ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES} )
 
 # ADD_EXECUTABLE( detectFeatures src/detectFeatures.cpp )
 # TARGET_LINK_LIBRARIES( detectFeatures 
@@ -92,8 +92,17 @@ INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 #     ${PCL_COMMON_LIBRARIES} 
 #     ${PCL_IO_LIBRARIES} )
 
-ADD_EXECUTABLE( slamEnd src/slamEnd.cpp )
-TARGET_LINK_LIBRARIES( slamEnd
+# ADD_EXECUTABLE( slamEnd src/slamEnd.cpp )
+# TARGET_LINK_LIBRARIES( slamEnd
+#     slambase
+#     ${OpenCV_LIBS}
+#     ${PCL_LIBRARIES}
+#     ${PCL_COMMON_LIBRARIES} 
+#     ${PCL_IO_LIBRARIES}
+#     g2o_core g2o_types_slam3d g2o_solver_csparse g2o_stuff g2o_csparse_extension ${CSPARSE_LIBRARY})
+
+ADD_EXECUTABLE( slam src/slam.cpp )
+TARGET_LINK_LIBRARIES( slam
     slambase
     ${OpenCV_LIBS}
     ${PCL_LIBRARIES}

@@ -64,6 +64,9 @@ int main( int argc, char** argv )
 
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {   
+        if (currIndex==186){
+            cout<<"186"<<endl;
+        }
         cout<<"Reading files "<<currIndex<<endl;
         FRAME currFrame = readFrame( currIndex,pd ); // 读取currFrame
         computeKeyPointsAndDesp( currFrame, detector, descriptor );
