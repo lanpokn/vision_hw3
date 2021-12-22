@@ -65,6 +65,7 @@ int main( int argc, char** argv )
             viewer.showCloud( cloud );
 
         lastFrame = currFrame;
+        pcl::io::savePCDFile( "../kitti03/data/result.pcd", *cloud );
     }
     outfile.close();
     

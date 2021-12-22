@@ -60,6 +60,43 @@ CMAKE_SOURCE_DIR = /home/lanpokn/Documents/2021/robot_vision/hw3
 CMAKE_BINARY_DIR = /home/lanpokn/Documents/2021/robot_vision/hw3/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/slam.dir
+
+# All Build rule for target.
+CMakeFiles/slam.dir/all: CMakeFiles/slambase.dir/all
+	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/depend
+	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=1,2 "Built target slam"
+.PHONY : CMakeFiles/slam.dir/all
+
+# Include target in all.
+all: CMakeFiles/slam.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/slam.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/slam.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 0
+.PHONY : CMakeFiles/slam.dir/rule
+
+# Convenience name for target.
+slam: CMakeFiles/slam.dir/rule
+
+.PHONY : slam
+
+# clean rule for target.
+CMakeFiles/slam.dir/clean:
+	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/clean
+.PHONY : CMakeFiles/slam.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/slam.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/slambase.dir
 
 # All Build rule for target.
@@ -97,39 +134,39 @@ clean: CMakeFiles/slambase.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/slam.dir
+# Target rules for target CMakeFiles/visualOdometry.dir
 
 # All Build rule for target.
-CMakeFiles/slam.dir/all: CMakeFiles/slambase.dir/all
-	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/depend
-	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=1,2 "Built target slam"
-.PHONY : CMakeFiles/slam.dir/all
+CMakeFiles/visualOdometry.dir/all: CMakeFiles/slambase.dir/all
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/depend
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles --progress-num=5,6 "Built target visualOdometry"
+.PHONY : CMakeFiles/visualOdometry.dir/all
 
 # Include target in all.
-all: CMakeFiles/slam.dir/all
+all: CMakeFiles/visualOdometry.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/slam.dir/rule: cmake_check_build_system
+CMakeFiles/visualOdometry.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/slam.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/visualOdometry.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lanpokn/Documents/2021/robot_vision/hw3/build/CMakeFiles 0
-.PHONY : CMakeFiles/slam.dir/rule
+.PHONY : CMakeFiles/visualOdometry.dir/rule
 
 # Convenience name for target.
-slam: CMakeFiles/slam.dir/rule
+visualOdometry: CMakeFiles/visualOdometry.dir/rule
 
-.PHONY : slam
-
-# clean rule for target.
-CMakeFiles/slam.dir/clean:
-	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/clean
-.PHONY : CMakeFiles/slam.dir/clean
+.PHONY : visualOdometry
 
 # clean rule for target.
-clean: CMakeFiles/slam.dir/clean
+CMakeFiles/visualOdometry.dir/clean:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/clean
+.PHONY : CMakeFiles/visualOdometry.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/visualOdometry.dir/clean
 
 .PHONY : clean
 

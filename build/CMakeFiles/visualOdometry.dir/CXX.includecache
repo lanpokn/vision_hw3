@@ -17,15 +17,13 @@ Eigen/Core
 -
 Eigen/Geometry
 -
-Eigen/Dense
--
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
 -
-opencv2/core/eigen.hpp
--
 opencv2/calib3d/calib3d.hpp
+-
+opencv2/core/eigen.hpp
 -
 pcl/io/pcd_io.h
 -

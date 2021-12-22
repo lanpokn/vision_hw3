@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named slam
+
+# Build rule for target.
+slam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 slam
+.PHONY : slam
+
+# fast build rule for target.
+slam/fast:
+	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/build
+.PHONY : slam/fast
+
+#=============================================================================
 # Target rules for targets named slambase
 
 # Build rule for target.
@@ -124,17 +137,17 @@ slambase/fast:
 .PHONY : slambase/fast
 
 #=============================================================================
-# Target rules for targets named slam
+# Target rules for targets named visualOdometry
 
 # Build rule for target.
-slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 slam
-.PHONY : slam
+visualOdometry: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
+.PHONY : visualOdometry
 
 # fast build rule for target.
-slam/fast:
-	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/build
-.PHONY : slam/fast
+visualOdometry/fast:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+.PHONY : visualOdometry/fast
 
 src/slam.o: src/slam.cpp.o
 
@@ -190,6 +203,33 @@ src/slamBase.cpp.s:
 	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/src/slamBase.cpp.s
 .PHONY : src/slamBase.cpp.s
 
+src/visualOdometry.o: src/visualOdometry.cpp.o
+
+.PHONY : src/visualOdometry.o
+
+# target to build an object file
+src/visualOdometry.cpp.o:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.o
+.PHONY : src/visualOdometry.cpp.o
+
+src/visualOdometry.i: src/visualOdometry.cpp.i
+
+.PHONY : src/visualOdometry.i
+
+# target to preprocess a source file
+src/visualOdometry.cpp.i:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.i
+.PHONY : src/visualOdometry.cpp.i
+
+src/visualOdometry.s: src/visualOdometry.cpp.s
+
+.PHONY : src/visualOdometry.s
+
+# target to generate assembly for a file
+src/visualOdometry.cpp.s:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.s
+.PHONY : src/visualOdometry.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,14 +238,18 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... slambase"
 	@echo "... slam"
+	@echo "... slambase"
+	@echo "... visualOdometry"
 	@echo "... src/slam.o"
 	@echo "... src/slam.i"
 	@echo "... src/slam.s"
 	@echo "... src/slamBase.o"
 	@echo "... src/slamBase.i"
 	@echo "... src/slamBase.s"
+	@echo "... src/visualOdometry.o"
+	@echo "... src/visualOdometry.i"
+	@echo "... src/visualOdometry.s"
 .PHONY : help
 
 

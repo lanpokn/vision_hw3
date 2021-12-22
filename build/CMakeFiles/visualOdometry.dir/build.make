@@ -90,6 +90,7 @@ visualOdometry_EXTERNAL_OBJECTS =
 
 ../bin/visualOdometry: CMakeFiles/visualOdometry.dir/src/visualOdometry.cpp.o
 ../bin/visualOdometry: CMakeFiles/visualOdometry.dir/build.make
+../bin/visualOdometry: ../lib/libslambase.a
 ../bin/visualOdometry: /usr/local/lib/libopencv_stitching.so.3.4.11
 ../bin/visualOdometry: /usr/local/lib/libopencv_superres.so.3.4.11
 ../bin/visualOdometry: /usr/local/lib/libopencv_videostab.so.3.4.11
