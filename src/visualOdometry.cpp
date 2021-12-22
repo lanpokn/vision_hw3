@@ -36,6 +36,7 @@ int main( int argc, char** argv )
     int min_inliers = atoi( pd.getData("min_inliers").c_str() );
     double max_norm = atof( pd.getData("max_norm").c_str() );
 
+    ofstream outfile("../kitti03/result/my.txt", ios::out|ios::trunc);
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
         cout<<"Reading files "<<currIndex<<endl;
@@ -53,8 +54,10 @@ int main( int argc, char** argv )
         if ( norm >= max_norm )
             continue;
         Eigen::Isometry3d T = cvMat2Eigen( result.rvec, result.tvec );
-        cout<<"T="<<T.matrix()<<endl;
-
+        // cout<<"T="<<T.matrix()<<endl;
+        outfile<<T(0,0)<<""<<T(0,1)<<""<<T(0,2)<<""<<T(0,3)<<endl;
+        outfile<<T(1,0)<<""<<T(1,1)<<""<<T(1,2)<<""<<T(1,3)<<endl;
+        outfile<<T(2,0)<<""<<T(2,1)<<""<<T(2,2)<<""<<T(2,3)<<endl;
         // cloud = joinPointCloud( cloud, currFrame, T.inverse(), camera );
         cloud = joinPointCloud( cloud, currFrame, T, camera );
 
@@ -63,7 +66,8 @@ int main( int argc, char** argv )
 
         lastFrame = currFrame;
     }
-
+    outfile.close();
+    
     pcl::io::savePCDFile( "../kitti03/data/result.pcd", *cloud );
     return 0;
 }

@@ -12,7 +12,9 @@
         "vector": "cpp",
         "string_view": "cpp",
         "initializer_list": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iosfwd": "cpp",
+        "fstream": "cpp"
     },
     "ros.distro": "melodic"
 }

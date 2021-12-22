@@ -88,13 +88,12 @@ void computeKeyPointsAndDesp( FRAME& frame, string detector, string descriptor )
 // 输出：rvec 和 tvec
 RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PARAMETERS& camera )
 {
-    static ParameterReader pd;
+static ParameterReader pd;
     vector< cv::DMatch > matches;
-    // cv::FlannBasedMatcher matcher;
     cv::BFMatcher matcher;
     matcher.match( frame1.desp, frame2.desp, matches );
-
-    cout<<"find total "<<matches.size()<<" matches."<<endl;
+   
+    RESULT_OF_PNP result;
     vector< cv::DMatch > goodMatches;
     double minDis = 9999;
     double good_match_threshold = atof( pd.getData( "good_match_threshold" ).c_str() );
@@ -104,13 +103,21 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
             minDis = matches[i].distance;
     }
 
+    if ( minDis < 12 ) 
+        minDis = 12;
+    
     for ( size_t i=0; i<matches.size(); i++ )
     {
         if (matches[i].distance < good_match_threshold*minDis)
             goodMatches.push_back( matches[i] );
     }
 
-    cout<<"good matches: "<<goodMatches.size()<<endl;
+
+    if (goodMatches.size() <= 5) 
+    {
+        result.inliers = -1;
+        return result;
+    }
     // 第一个帧的三维点
     vector<cv::Point3f> pts_obj;
     // 第二个帧的图像点
@@ -122,7 +129,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
         // query 是第一个, train 是第二个
         cv::Point2f p = frame1.kp[goodMatches[i].queryIdx].pt;
         // 获取d是要小心！x是向右的，y是向下的，所以y才是行，x是列！
-        uchar d = frame1.depth.ptr<uchar>( int(p.y) )[ int(p.x) ];
+        ushort d = frame1.depth.ptr<ushort>( int(p.y) )[ int(p.x) ];
         if (d == 0)
             continue;
         pts_img.push_back( cv::Point2f( frame2.kp[goodMatches[i].trainIdx].pt ) );
@@ -133,33 +140,29 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
         pts_obj.push_back( pd );
     }
 
+    if (pts_obj.size() <=5 || pts_img.size()<=5)
+    {
+        result.inliers = -1;
+        return result;
+    }
+
     double camera_matrix_data[3][3] = {
         {camera.fx, 0, camera.cx},
         {0, camera.fy, camera.cy},
         {0, 0, 1}
     };
 
-    cout<<"solving pnp"<<endl;
     // 构建相机矩阵
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
-    if (minDis>12){
-        cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 8.0, 0.68, inliers );
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
 
-        RESULT_OF_PNP result;
-        result.rvec = rvec;
-        result.tvec = tvec;
-        result.inliers = inliers.rows;
-        return result;
-    }
-    else{
-        RESULT_OF_PNP result;
-        result.rvec = (Mat_<double>(3,1)<<0,0,0);
-        result.tvec = (Mat_<double>(3,1)<<0,0,0);
-        result.inliers = 0;
-        return result;
-    }
+    result.rvec = rvec;
+    result.tvec = tvec;
+    result.inliers = inliers.rows;
+
+    return result;
 
 }
 
