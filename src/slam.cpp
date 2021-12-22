@@ -156,10 +156,10 @@ int main( int argc, char** argv )
         outfile<<T(2,0)<<""<<T(2,1)<<""<<T(2,2)<<""<<T(2,3)<<endl;
         PointCloud::Ptr newCloud = image2PointCloud( keyframes[i].rgb, keyframes[i].depth, camera ); //转成点云
         // 以下是滤波
-        voxel.setInputCloud( newCloud );
-        voxel.filter( *tmp );
-        pass.setInputCloud( tmp );
-        pass.filter( *newCloud );
+        // voxel.setInputCloud( newCloud );
+        // voxel.filter( *tmp );
+        // pass.setInputCloud( tmp );
+        // pass.filter( *newCloud );
         // 把点云变换后加入全局地图中
         pcl::transformPointCloud( *newCloud, *tmp, pose.matrix() );
         *output += *tmp;
