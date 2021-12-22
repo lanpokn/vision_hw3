@@ -39,6 +39,7 @@ int main( int argc, char** argv )
     ofstream outfile("../kitti03/result/my.txt", ios::out|ios::trunc);
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
+        pcl::io::savePCDFile( "../kitti03/data/result.pcd", *cloud );
         cout<<"Reading files "<<currIndex<<endl;
         FRAME currFrame = readFrame( currIndex,pd ); // 读取currFrame
         computeKeyPointsAndDesp( currFrame, detector, descriptor );
