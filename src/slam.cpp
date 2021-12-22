@@ -165,6 +165,7 @@ int main( int argc, char** argv )
         *output += *tmp;
         tmp->clear();
         newCloud->clear();
+        pcl::io::savePCDFile( "../kitti03/data/result.pcd", *output );
     }
     outfile.close();
     
