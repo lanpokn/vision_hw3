@@ -84,13 +84,13 @@ TARGET_LINK_LIBRARIES( slambase
 #     ${OpenCV_LIBS} 
 #     ${PCL_LIBRARIES} )
 
-# ADD_EXECUTABLE(visualOdometry src/visualOdometry.cpp )
-# TARGET_LINK_LIBRARIES( visualOdometry 
-#     slambase
-#     ${OpenCV_LIBS} 
-#     ${PCL_LIBRARIES}
-#     ${PCL_COMMON_LIBRARIES} 
-#     ${PCL_IO_LIBRARIES} )
+ADD_EXECUTABLE(visualOdometry src/visualOdometry.cpp )
+TARGET_LINK_LIBRARIES( visualOdometry 
+    slambase
+    ${OpenCV_LIBS} 
+    ${PCL_LIBRARIES}
+    ${PCL_COMMON_LIBRARIES} 
+    ${PCL_IO_LIBRARIES} )
 
 # ADD_EXECUTABLE( slamEnd src/slamEnd.cpp )
 # TARGET_LINK_LIBRARIES( slamEnd
