@@ -124,6 +124,32 @@ slam/fast:
 .PHONY : slam/fast
 
 #=============================================================================
+# Target rules for targets named visualOdometry
+
+# Build rule for target.
+visualOdometry: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
+.PHONY : visualOdometry
+
+# fast build rule for target.
+visualOdometry/fast:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+.PHONY : visualOdometry/fast
+
+#=============================================================================
+# Target rules for targets named sgbm
+
+# Build rule for target.
+sgbm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sgbm
+.PHONY : sgbm
+
+# fast build rule for target.
+sgbm/fast:
+	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/build
+.PHONY : sgbm/fast
+
+#=============================================================================
 # Target rules for targets named slambase
 
 # Build rule for target.
@@ -136,18 +162,32 @@ slambase/fast:
 	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/build
 .PHONY : slambase/fast
 
-#=============================================================================
-# Target rules for targets named visualOdometry
+src/sgbm.o: src/sgbm.cpp.o
 
-# Build rule for target.
-visualOdometry: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
-.PHONY : visualOdometry
+.PHONY : src/sgbm.o
 
-# fast build rule for target.
-visualOdometry/fast:
-	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
-.PHONY : visualOdometry/fast
+# target to build an object file
+src/sgbm.cpp.o:
+	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/src/sgbm.cpp.o
+.PHONY : src/sgbm.cpp.o
+
+src/sgbm.i: src/sgbm.cpp.i
+
+.PHONY : src/sgbm.i
+
+# target to preprocess a source file
+src/sgbm.cpp.i:
+	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/src/sgbm.cpp.i
+.PHONY : src/sgbm.cpp.i
+
+src/sgbm.s: src/sgbm.cpp.s
+
+.PHONY : src/sgbm.s
+
+# target to generate assembly for a file
+src/sgbm.cpp.s:
+	$(MAKE) -f CMakeFiles/sgbm.dir/build.make CMakeFiles/sgbm.dir/src/sgbm.cpp.s
+.PHONY : src/sgbm.cpp.s
 
 src/slam.o: src/slam.cpp.o
 
@@ -239,8 +279,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... slam"
-	@echo "... slambase"
 	@echo "... visualOdometry"
+	@echo "... sgbm"
+	@echo "... slambase"
+	@echo "... src/sgbm.o"
+	@echo "... src/sgbm.i"
+	@echo "... src/sgbm.s"
 	@echo "... src/slam.o"
 	@echo "... src/slam.i"
 	@echo "... src/slam.s"

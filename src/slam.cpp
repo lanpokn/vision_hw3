@@ -339,3 +339,5 @@ void checkRandomLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptim
         }
     }
 }
+
+

@@ -39,7 +39,7 @@ int main( int argc, char** argv )
         //gray 相当于只有一个通道的rgb，我用了蓝色，因为点云看着顺眼
         string rgbDir = "../kitti03/image_0/";//获取视图输入目录名
         string depthDir = "../kitti03/depth/";
-        string pointDir = "../kitti03/pointcloud/";
+        string pointDir = "../kitti03/pointcloud16/";
         string rgbExt = ".png";
         //输出当前文件序号（使用的TUM数据集，其双目视图命名从000000至004540，详情参看博文末尾ps）
         string numzero;
@@ -91,7 +91,7 @@ int main( int argc, char** argv )
             for (int n=0; n < depth.cols; n++)
             {
                 // 获取深度图中(m,n)处的值
-                uchar d = depth.ptr<uchar>(m)[n];
+                ushort d = depth.ptr<ushort>(m)[n];
                 // d 可能没有值，若如此，跳过此点
                 if (d == 0)
                     continue;
@@ -105,10 +105,10 @@ int main( int argc, char** argv )
 
                 // 从rgb图像中获取它的颜色
                 // rgb是三通道的BGR格式图，所以按下面的顺序获取颜色
-                // p.b = rgb.ptr<uchar>(m)[n*3];
-                // p.g = rgb.ptr<uchar>(m)[n*3+1];
-                // p.r = rgb.ptr<uchar>(m)[n*3+2];
-                p.b = rgb.ptr<uchar>(m)[n];
+                // p.b = rgb.ptr<ushort>(m)[n*3];
+                // p.g = rgb.ptr<ushort>(m)[n*3+1];
+                // p.r = rgb.ptr<ushort>(m)[n*3+2];
+                p.b = rgb.ptr<ushort>(m)[n];
                 p.g = 0;
                 p.r = 0;
                 cloud->points.push_back( p );

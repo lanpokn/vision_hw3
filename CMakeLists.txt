@@ -65,8 +65,8 @@ INCLUDE_DIRECTORIES( ${PROJECT_SOURCE_DIR}/include)
 # add_executable(test01 src/test01.cpp)
 # target_link_libraries(test01 ${OpenCV_LIBS})
 
-# add_executable(sgbm src/sgbm.cpp)
-# target_link_libraries(sgbm ${OpenCV_LIBS})
+add_executable(sgbm src/sgbm.cpp)
+target_link_libraries(sgbm ${OpenCV_LIBS})
 
 # ADD_EXECUTABLE( generatePointCloud src/generatePointCloud.cpp )
 # TARGET_LINK_LIBRARIES( generatePointCloud 

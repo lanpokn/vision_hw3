@@ -1,27 +1,3 @@
-{% comment %} # TODO
-#camera
-camera.fx=721.5377000000
-camera.fy=721.5377000000
-camera.cx=609.5593000000
-camera.cy=172.8540000000
-camera.baseline=0.53715
-camera.scale=10000
-
-#file
-rgb_extension=.png
-left_dir=../kitti03/image_0/
-right_dir=../kitti03/image_1/
-depth_dir=../kitti03/depth/
-color_dir=../kitti03/color/
-disp_dir=../kitti03/disp/
-
-#other
-start_index=0
-end_index=801
-is_color=no
-algorithm=SGBM
-#algorithm=BM {% endcomment %}
-
 {% comment %} # 这是一个参数文件
 # 去你妹的yaml! 我再也不用yaml了！简简单单多好！
 
@@ -57,7 +33,7 @@ min_good_match=10
 # 最小内点
 min_inliers=5
 # 最大运动误差
-max_norm=2
+max_norm=0.3
 
 #part 7
 keyframe_threshold=0.01

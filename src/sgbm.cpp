@@ -158,7 +158,8 @@ int main(int argc, char const *argv[])
         }
         }
         // 格式转换
-        depth1.convertTo(depth,CV_8UC1,1./256);  //转8位   
+        depth1.convertTo(depth,CV_16U);  //转16位
+        normalize(depth, depth, 0, 256 * 256, NORM_MINMAX);   
         // cv::Mat falseColorsMap;
 	    // applyColorMap(depth, falseColorsMap, cv::COLORMAP_JET);
         // cv::namedWindow("depth3");
@@ -246,3 +247,27 @@ FILE_FORM readForm(int index,ParameterReader pd)
 
     return f;
 }
+
+// # TODO
+// #camera
+// camera.fx=721.5377000000
+// camera.fy=721.5377000000
+// camera.cx=609.5593000000
+// camera.cy=172.8540000000
+// camera.baseline=0.53715
+// camera.scale=10000
+
+// #file
+// rgb_extension=.png
+// left_dir=../kitti03/image_0/
+// right_dir=../kitti03/image_1/
+// depth_dir=../kitti03/depth_16/
+// color_dir=../kitti03/color/
+// disp_dir=../kitti03/disp/
+
+// #other
+// start_index=0
+// end_index=801
+// is_color=no
+// algorithm=SGBM
+// #algorithm=BM

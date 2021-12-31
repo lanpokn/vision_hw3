@@ -257,6 +257,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/slam.dir/DependInfo.cmake"
-  "CMakeFiles/slambase.dir/DependInfo.cmake"
   "CMakeFiles/visualOdometry.dir/DependInfo.cmake"
+  "CMakeFiles/sgbm.dir/DependInfo.cmake"
+  "CMakeFiles/slambase.dir/DependInfo.cmake"
   )

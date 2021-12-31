@@ -19,7 +19,7 @@ PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSIC
         for (int n=0; n < depth.cols; n++)
         {
             // 获取深度图中(m,n)处的值
-            uchar d = depth.ptr<uchar>(m)[n];
+            ushort d = depth.ptr<ushort>(m)[n];
             // d 可能没有值，若如此，跳过此点
             if (d == 0)
                 continue;
@@ -31,12 +31,8 @@ PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSIC
             p.x = (n - camera.cx) * p.z / camera.fx;
             p.y = (m - camera.cy) * p.z / camera.fy;
 
-            // 从rgb图像中获取它的颜色
-            // rgb是三通道的BGR格式图，所以按下面的顺序获取颜色
-            // p.b = rgb.ptr<uchar>(m)[n*3];
-            // p.g = rgb.ptr<uchar>(m)[n*3+1];
-            // p.r = rgb.ptr<uchar>(m)[n*3+2];
-            p.b = rgb.ptr<uchar>(m)[n];
+
+            p.b = rgb.ptr<ushort>(m)[n];
             p.g = 0;
             p.r = 0;
             cloud->points.push_back( p );
@@ -129,7 +125,7 @@ static ParameterReader pd;
         // query 是第一个, train 是第二个
         cv::Point2f p = frame1.kp[goodMatches[i].queryIdx].pt;
         // 获取d是要小心！x是向右的，y是向下的，所以y才是行，x是列！
-        uchar d = frame1.depth.ptr<uchar>( int(p.y) )[ int(p.x) ];
+        ushort d = frame1.depth.ptr<ushort>( int(p.y) )[ int(p.x) ];
         if (d == 0)
             continue;
         pts_img.push_back( cv::Point2f( frame2.kp[goodMatches[i].trainIdx].pt ) );
