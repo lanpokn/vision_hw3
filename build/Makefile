@@ -111,30 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named slam
+# Target rules for targets named generatePointCloud
 
 # Build rule for target.
-slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 slam
-.PHONY : slam
+generatePointCloud: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 generatePointCloud
+.PHONY : generatePointCloud
 
 # fast build rule for target.
-slam/fast:
-	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/build
-.PHONY : slam/fast
-
-#=============================================================================
-# Target rules for targets named visualOdometry
-
-# Build rule for target.
-visualOdometry: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
-.PHONY : visualOdometry
-
-# fast build rule for target.
-visualOdometry/fast:
-	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
-.PHONY : visualOdometry/fast
+generatePointCloud/fast:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/build
+.PHONY : generatePointCloud/fast
 
 #=============================================================================
 # Target rules for targets named sgbm
@@ -161,6 +148,59 @@ slambase: cmake_check_build_system
 slambase/fast:
 	$(MAKE) -f CMakeFiles/slambase.dir/build.make CMakeFiles/slambase.dir/build
 .PHONY : slambase/fast
+
+#=============================================================================
+# Target rules for targets named visualOdometry
+
+# Build rule for target.
+visualOdometry: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualOdometry
+.PHONY : visualOdometry
+
+# fast build rule for target.
+visualOdometry/fast:
+	$(MAKE) -f CMakeFiles/visualOdometry.dir/build.make CMakeFiles/visualOdometry.dir/build
+.PHONY : visualOdometry/fast
+
+#=============================================================================
+# Target rules for targets named slam
+
+# Build rule for target.
+slam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 slam
+.PHONY : slam
+
+# fast build rule for target.
+slam/fast:
+	$(MAKE) -f CMakeFiles/slam.dir/build.make CMakeFiles/slam.dir/build
+.PHONY : slam/fast
+
+src/generatePointCloud.o: src/generatePointCloud.cpp.o
+
+.PHONY : src/generatePointCloud.o
+
+# target to build an object file
+src/generatePointCloud.cpp.o:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.o
+.PHONY : src/generatePointCloud.cpp.o
+
+src/generatePointCloud.i: src/generatePointCloud.cpp.i
+
+.PHONY : src/generatePointCloud.i
+
+# target to preprocess a source file
+src/generatePointCloud.cpp.i:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.i
+.PHONY : src/generatePointCloud.cpp.i
+
+src/generatePointCloud.s: src/generatePointCloud.cpp.s
+
+.PHONY : src/generatePointCloud.s
+
+# target to generate assembly for a file
+src/generatePointCloud.cpp.s:
+	$(MAKE) -f CMakeFiles/generatePointCloud.dir/build.make CMakeFiles/generatePointCloud.dir/src/generatePointCloud.cpp.s
+.PHONY : src/generatePointCloud.cpp.s
 
 src/sgbm.o: src/sgbm.cpp.o
 
@@ -277,11 +317,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... generatePointCloud"
 	@echo "... edit_cache"
-	@echo "... slam"
-	@echo "... visualOdometry"
 	@echo "... sgbm"
 	@echo "... slambase"
+	@echo "... visualOdometry"
+	@echo "... slam"
+	@echo "... src/generatePointCloud.o"
+	@echo "... src/generatePointCloud.i"
+	@echo "... src/generatePointCloud.s"
 	@echo "... src/sgbm.o"
 	@echo "... src/sgbm.i"
 	@echo "... src/sgbm.s"

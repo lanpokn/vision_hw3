@@ -151,9 +151,9 @@ int main( int argc, char** argv )
         g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[i].frameID ));
         Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
         Eigen::Isometry3d &T = pose;
-        outfile<<T(0,0)<<" "<<T(0,1)<<" "<<T(0,2)<<" "<<T(0,3)<<" ";
-        outfile<<T(1,0)<<" "<<T(1,1)<<" "<<T(1,2)<<" "<<T(1,3)<<" ";
-        outfile<<T(2,0)<<" "<<T(2,1)<<" "<<T(2,2)<<" "<<T(2,3)<<endl;
+        outfile<<T(0,0)<<" "<<T(0,1)<<" "<<T(0,2)<<" "<<10*T(0,3)<<" ";
+        outfile<<T(1,0)<<" "<<T(1,1)<<" "<<T(1,2)<<" "<<10*T(1,3)<<" ";
+        outfile<<T(2,0)<<" "<<T(2,1)<<" "<<T(2,2)<<" "<<10*T(2,3)<<endl;
         PointCloud::Ptr newCloud = image2PointCloud( keyframes[i].rgb, keyframes[i].depth, camera ); //转成点云
         // 以下是滤波
         voxel.setInputCloud( newCloud );

@@ -22,7 +22,7 @@ end_index=100
 # 数据所在目录
 rgb_dir=../kitti03/image_0/
 rgb_extension=.png
-depth_dir=../kitti03/depth/
+depth_dir=../kitti03/depth_16/
 depth_extension=.png
 # 点云分辨率
 voxel_grid=0.01
@@ -33,7 +33,7 @@ min_good_match=10
 # 最小内点
 min_inliers=5
 # 最大运动误差
-max_norm=0.3
+max_norm=0.5
 
 #part 7
 keyframe_threshold=0.01

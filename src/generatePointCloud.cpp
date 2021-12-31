@@ -21,7 +21,7 @@ typedef pcl::PointCloud<PointT> PointCloud;
 // camera.baseline=0.53715
 // camera.scale=10000
 // 相机内参
-const double camera_factor = 10000;
+const double camera_factor = 1;
 const double camera_cx = 609.5593;
 const double camera_cy = 172.854;
 const double camera_fx = 721.5377;
@@ -38,7 +38,7 @@ int main( int argc, char** argv )
     {       
         //gray 相当于只有一个通道的rgb，我用了蓝色，因为点云看着顺眼
         string rgbDir = "../kitti03/image_0/";//获取视图输入目录名
-        string depthDir = "../kitti03/depth/";
+        string depthDir = "../kitti03/depth_16/";
         string pointDir = "../kitti03/pointcloud16/";
         string rgbExt = ".png";
         //输出当前文件序号（使用的TUM数据集，其双目视图命名从000000至004540，详情参看博文末尾ps）
@@ -79,10 +79,10 @@ int main( int argc, char** argv )
         ss>>filename;
 
         depth = cv::imread(filename,-1);
-        // cv::namedWindow("depth");
-        // cv::imshow("depth", depth);
-        // if ((cv::waitKey() & 255) == 27)
-        //     break;
+        cv::namedWindow("depth");
+        cv::imshow("depth", depth);
+        if ((cv::waitKey() & 255) == 27)
+            break;
         // 点云变量
         // 使用智能指针，创建一个空点云。这种指针用完会自动释放。
         PointCloud::Ptr cloud ( new PointCloud );
@@ -108,7 +108,7 @@ int main( int argc, char** argv )
                 // p.b = rgb.ptr<ushort>(m)[n*3];
                 // p.g = rgb.ptr<ushort>(m)[n*3+1];
                 // p.r = rgb.ptr<ushort>(m)[n*3+2];
-                p.b = rgb.ptr<ushort>(m)[n];
+                p.b = rgb.ptr<uchar>(m)[n];
                 p.g = 0;
                 p.r = 0;
                 cloud->points.push_back( p );

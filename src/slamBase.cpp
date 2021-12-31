@@ -32,7 +32,7 @@ PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSIC
             p.y = (m - camera.cy) * p.z / camera.fy;
 
 
-            p.b = rgb.ptr<ushort>(m)[n];
+            p.b = rgb.ptr<uchar>(m)[n];
             p.g = 0;
             p.r = 0;
             cloud->points.push_back( p );
